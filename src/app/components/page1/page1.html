@@ -1,1 +1,32 @@
-<p>page1 works!</p>
+<h2>Selecciona un país</h2>
+<select [(ngModel)]="paisSeleccionado" (ngModelChange)="cargarEstados($event.isoCode)">
+  <option *ngFor="let pais of paises" [ngValue]="pais">
+    {{ pais.name }}
+  </option>
+</select>
+
+<h2>Información del país seleccionado</h2>
+<div *ngIf="paisSeleccionado">
+  <p><strong>Nombre:</strong> {{ paisSeleccionado.name }}</p>
+  <p><strong>Código ISO:</strong> {{ paisSeleccionado.isoCode }}</p>
+  <p><strong>Latitud:</strong> {{ paisSeleccionado.latitude }}</p>
+  <p><strong>Longitud:</strong> {{ paisSeleccionado.longitude }}</p>
+  <p><strong>Bandera:</strong> {{ paisSeleccionado.flag }}</p>
+  <p><strong>Moneda:</strong> {{ paisSeleccionado.currency }}</p>
+  <p><strong>Código de teléfono:</strong> {{ paisSeleccionado.phonecode }}</p>
+</div>
+
+<h3>Estados</h3>
+<select [(ngModel)]="estadoSeleccionado">
+  <option *ngFor="let estado of estados" [ngValue]="estado">
+    {{ estado.name }}
+  </option>
+</select>
+
+<h2>Información del estado seleccionado</h2>
+<div *ngIf="estadoSeleccionado">
+  <p><strong>Nombre:</strong> {{ estadoSeleccionado.name }}</p>
+  <p><strong>Código ISO:</strong> {{ estadoSeleccionado.isoCode }}</p>
+  <p><strong>Latitud:</strong> {{ estadoSeleccionado.latitude }}</p>
+  <p><strong>Longitud:</strong> {{ estadoSeleccionado.longitude }}</p>
+</div>
